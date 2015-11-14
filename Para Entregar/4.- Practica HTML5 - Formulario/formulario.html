@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>Tarea: Practica HTML5 - Formulario</title> 
+		<link href="estilos.css" rel="stylesheet" /> 
+	</head> 
+	<body> 
+		<form class="formulario" action="#" id="formulario" oninput="resultado.value=parseInt(fecha_act.value)-parseInt(fecha_nac.value)"> 
+			<div> 
+				<h2>Contacto</h2> 
+				<span class="texto_requerido">* Datos requeridos</span> 
+				<ul> 
+					<li> 
+						<label>Nombre:</label> 
+						<input type="text" placeholder="Su nombre" maxlength="50" required /> 
+						<span class="asterisco">*</span> 
+					</li> 
+					<li> 
+						<label>Apellido 1:</label> 
+						<input type="text" placeholder="Su primer apellido" maxlength="50" required /> 
+						<span class="asterisco">*</span>
+					</li> 
+					<li> 
+						<label>Apellido 2:</label> 
+						<input type="text" placeholder="Su segundo apellido" maxlength="50" /> 
+					</li>
+					<li> 
+						<label>Domicilio:</label> 
+					</li>
+						<ul>
+							<li> 
+								<label>Calle:</label> 
+								<input type="text" placeholder="Su calle" maxlength="150" required /> 
+								<span class="asterisco">*</span>
+							</li>
+							<li> 
+								<label>Número:</label> 
+								<input id="numero" type="number" placeholder="Su número" min="1" maxlength="3" required /> 
+								<span class="asterisco">*</span>
+							</li>
+						</ul>    
+					<li> 
+						<label>Población:</label> 
+						<input placeholder="Su población" list="poblaciones" required />
+						<span class="asterisco">*</span>
+						<datalist id="poblaciones">
+							<option value="Salamanca">
+							<option value="Ciudad Rodrigo">
+							<option value="Santa Marta">
+						</datalist> 
+					</li>  
+					<li> 
+						<label>Provincia:</label> 
+						<input placeholder="Su provincia" list="provincias" required />
+						<span class="asterisco">*</span>
+						<datalist id="provincias">
+							<option value="Salamanca">
+						</datalist> 
+					</li>  	
+					<li> 
+						<label>Código Postal:</label> 
+						<input type="number" placeholder="Su código postal" maxlength="5" required /> 
+						<span class="asterisco">*</span>
+					</li>  	
+					<li> 
+						<label>Fecha de Nacimiento:</label> 
+						<input id="fecha_nac" type="date" placeholder="Su fecha de nacimiento" value="0" required /> 
+						<span class="asterisco">*</span>
+					</li>  			
+					<li> 
+						<label for="edad">Edad:</label> 
+							<input type="number" class="fecha_act" id="fecha_act" value="2015" />
+							<output name="resultado" for="fecha_act fecha_nac"></output>
+					</li>
+					<li> 
+						<label>Peso:</label> 
+						<input type="number" placeholder="Su peso" required step="5" min="20"/> 
+						<label> kg. </label>
+						<span class="asterisco"> *</span>
+				</ul>
+				   
+						<button class="enviar" type="submit">Enviar formulario</button> 
+
+			</div> 
+		</form> 
+	</body> 
+</html>
+
+

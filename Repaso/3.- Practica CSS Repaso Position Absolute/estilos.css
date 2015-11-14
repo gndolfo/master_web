@@ -1,0 +1,49 @@
+body { 
+   width: 940px;
+   margin: 0 auto; 
+   background-image: url("fondo.jpg");
+   background-repeat: no-repeat;
+   background-position: top center;
+} 
+
+
+#copo1 {
+	color: white;
+	position: absolute;
+	left: 400px;
+	top: 0px;
+	font-size: 25pt;
+}
+
+#copo2 {
+	color: white;
+	position: absolute;
+	left: 575px;
+	top: 0px;
+	font-size: 25pt;
+	
+}
+
+#copo3 {
+	color: white;
+	position: absolute;
+	left: 485px;
+	top: 50px;
+	font-size: 22pt;
+}
+
+#copo4 {
+	color: white;
+	position: absolute;
+	left: 605px;
+	top: 115px;
+	font-size: 18pt;
+}
+
+#copo5 {
+	color: white;
+	position: absolute;
+	left: 640px;
+	top: 200px;
+	font-size: 18pt;
+}

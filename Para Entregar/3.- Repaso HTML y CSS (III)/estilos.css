@@ -1,0 +1,65 @@
+body { 
+	width: 960px;
+	font: 10pt Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	background-color: white; 
+} 
+
+.lista{
+	margin: auto;
+	width: 75%;
+	box-shadow: 7px 0px 17px -7px rgba(0,0,0,0.75);
+}
+
+.imagen {
+	width: 20%;
+	float: right;
+	text-align: center;
+	padding-left: 10px;
+	display: inline;
+}
+
+.titular {
+	padding: 10px;
+	width: 70%;
+	font: 18pt bold;
+	float: left;	
+}
+
+.categoria {
+	font-size: 8pt;
+	padding: 10px;
+	float: left;
+	width: 700%;	
+}
+
+.resumen {
+	font-size: 10pt;
+	padding: 10px;
+	float: left;
+	width: 70%;
+	display: inline;
+}
+
+.autor {
+	font-size: 8pt;
+	padding: 10px;
+	float: left;
+	width: 20%;	
+	color: grey;
+}
+
+.fecha {
+	font-size: 8pt;
+	color: red;
+	padding: 10px;
+	float: left;
+	width: 35%;	
+}
+
+.articulo {
+	width: 90%;
+	height: 200px;
+	padding:10px;
+	display: block;
+	border-top: 1px solid gray;
+}

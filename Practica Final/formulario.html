@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>Practica Final</title> 
+		<link href="estilos.css" rel="stylesheet" /> 
+	</head> 
+	<body> 
+		<form class="formulario" action="#" id="formulario"> 
+			<div> 
+				<h2>Formulario Cliente</h2> 
+				<span class="texto_requerido">* Datos requeridos</span> 
+				<ul> 
+					<li> 
+						<label>Nombre:</label> 
+						<input type="text" placeholder="Su nombre" maxlength="60" required /> 
+						<span class="asterisco">*</span> 
+					</li> 
+					<li> 
+						<label>Apellido 1:</label> 
+						<input type="text" placeholder="Su primer apellido" maxlength="60" required /> 
+						<span class="asterisco">*</span>
+					</li> 
+					<li> 
+						<label>Apellido 2:</label> 
+						<input type="text" placeholder="Su segundo apellido" maxlength="60" /> 
+					</li>
+					<li> 
+						<label>Direccion:</label> 
+						<input type="text" placeholder="Su direccion" maxlength="120" required /> 
+						<span class="asterisco">*</span>
+					</li>
+					<li> 
+						<label>Código Postal:</label> 
+						<input type="number" placeholder="Su código postal" minlengh="5" maxlength="5" required /> 
+						<span class="asterisco">*</span>
+					</li>  
+					<li> 
+						<label>Fecha de Alta:</label> 
+						<input id="fecha_nac" type="date" placeholder="Su fecha de nacimiento" value="0" required /> 
+						<span class="asterisco">*</span>
+					</li>  
+					<li> 
+						<label>Provincia:</label> 
+						<input placeholder="Su provincia" list="provincias" required />
+						<span class="asterisco">*</span>
+						<datalist id="provincias">
+							<option value="Salamanca">
+						</datalist> 
+					</li>  					
+				</ul>
+				<button class="enviar" type="submit">Enviar formulario</button> 
+			</div> 
+		</form> 
+	</body> 
+</html>
+
+

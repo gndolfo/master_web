@@ -1,7 +1,35 @@
-body {
+body{
 	width: 940px;
 	margin: 20px;
-	
+	font-family:Tahoma;
+}
+ul{
+	list-style:none;
+}
+
+ul label{
+	width:200px;
+	float:left;
+}
+
+#formularioClientes{
+	border:solid 1px;
+}
+
+#listaClientes{
+	width:100%;
+	border:solid 1px;
+	text-align:left;
+   	border-collapse:collapse; 
+}
+
+#listaClientes tbody tr{
+	border:solid 1px;
+	height:30px;
+}
+
+#listaClientes thead{
+	background:beige;
 }
 
 .texto_requerido {
@@ -12,41 +40,19 @@ body {
 	font: normal;
 }
 
-.formulario ul { 
-	width: 750px; 
-	list-style-type: none; 
-	list-style-position: outside;
-	margin: 0px; 
-	padding: 0px; 
-} 
-
-.formulario li { 
-	padding: 12px; 
-	position: relative; 
-} 
-
-.formulario ul ul { 
-	padding: 12px; 
-	position: relative; 
-} 
-
-.formulario h2 { 
-	margin: 10px;
-	display: inline-block;  
-} 
-
 .texto_requerido, .asterisco { 
 	color: #d45252; 
 	margin: 5px 0 0 0; 
 } 
 
-.enviar {
+.irFormulario {
 	padding: 10px;
 	margin-top: 20px;
 	margin-left: 20px;
 }
 
-.fecha_act {
-	visibility: hidden;
-	display: none;
+.boton {
+	padding: 10px;
+	margin-top: 20px;
+	margin-left: 20px;
 }

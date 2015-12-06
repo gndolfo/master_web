@@ -1,1 +1,0 @@
-alert("Bienvenido al Máster de Telefonía de la USAL")

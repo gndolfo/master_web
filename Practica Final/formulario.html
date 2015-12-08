@@ -4,6 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 		<title>Practica Final</title> 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 		<script type="text/javascript" src="funciones.js"></script>
 		<link rel="stylesheet" type="text/css" href="estilos.css"/>
 		<noscript>
@@ -41,9 +42,8 @@
 						<span class="asterisco">*</span>
 					</li>  
 					<li> 
-						<label for="fecha_alta">Fecha de Alta:</label> 
-						<input id="fecha_alta" type="date" placeholder="Su fecha de nacimiento" value="0" required /> 
-						<span class="asterisco">*</span>
+						<label for="fechaAlta">Fecha de Alta:</label> 
+						<input id="fechaAlta" type="date" placeholder="Su fecha de alta" /> 
 					</li>  
 					<li> 
 						<label for="provincia">Provincia:</label> 
@@ -51,7 +51,10 @@
 						<span class="asterisco">*</span>
 					</li>  					
 				</ul>
+				<!--<input class="boton" id="guardar" type="button" value="Guardar" onclick="Nuevo();" />-->
 				<button class="boton" type="submit">Guardar</button> 
+				<!--<button class="boton" id ="guardar" onclick="Nuevo();"> Guardar </button>-->
+				<button class="boton" onclick="location.href='index.html';"> Volver </button> 
 			</div> 
 		</form> 
 	</body> 

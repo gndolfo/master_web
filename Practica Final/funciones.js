@@ -1,44 +1,16 @@
 /*
 	Funciones JS usando el API de Parse	
 */
-	
-var accion = "A";
 
 
 //Inicializamos la comunicación con Parse
 Parse.initialize("D6tEXoUinkIU6knB0utAgcok169FfzbgMYO3DUMk", "GAV1qGELzIL1BDraCAMPNiNWTdUP4rZr8agnxxlO");
 
-//Invoca a la función Listar para refrescar la tabla.
+//Invocamos la funicion Listar para que cargue la tabla de clientes desde Parse.
 Listar();
 
-
-//Asigna el comportamiento al boton de Guardar.
-$("#formularioClientes").bind("submit",function(){		
-	if(accion == "A"){
-		alert("hola");
-		return Nuevo();
-	}else{
-		return Modificar();
-		}
-});
-
-//Asigna el comportamiento del botón Modificar
-/*$(".modificar").bind("click", function(){
-
-	accion = "E";
-	indice = parseInt($(this).attr("alt").replace("Modificar", ""));
-	location.href='formulario.html';
-	var cliente = JSON.parse(tablaClientes[indice]);
-	$("#nombre").val(cliente.Nombre),
-	$("#apellido1").val(cliente.Apellido1),
-	$("#apellido2").val(cliente.Apellido2),
-	$("#direccion").val(cliente.Direccion),
-	$("#cpostal").val(cliente.CodigoPostal),
-	$("#provincia").val(cliente.Provincia),
-	$("#fechaAlta").val(cliente.fechaAlta)
-	$("#cpostal").focus();
-});
-*/
+//Invocamos la funcion ListarProvincias para que rellene el combobox del formulario.
+ListarProvincias();
 
 
 //Funcion encargada de añadir una nueva tupla con la información del cliente
@@ -72,6 +44,12 @@ function Nuevo(){
 	  }
 	});
 }
+
+
+
+function GoogleMapsEmbebido(){
+}
+
 
 //Funcion encargada de generar dinámicamente la tabla de clientes
 function Listar(){
@@ -120,7 +98,7 @@ function Listar(){
 										 "	<td>"+cpostal+"</td>" + 
 										 "	<td>"+provincia+"</td>" + 
 										 "	<td>"+fechaAlta+"</td>" + 
-										 "	<td><button onclick='Modificar("+i+");' alt='Modificar"+i+"' class='modificar'><img src='recursos/modificar.png'/></button><button onclick='Borrar("+i+");' alt='Borrar"+i+"' class='borrar'><img src='recursos/borrar.png' /></button></td>" + 
+										 "	<td><button onclick='CargarFormulario("+i+");' alt='Modificar"+i+"' class='modificar'><img src='recursos/modificar.png'/></button><button onclick='Borrar("+i+");' alt='Borrar"+i+"' class='borrar'><img src='recursos/borrar.png' /></button></td>" + 
 		  								 "</tr>");
 		}
 	  },
@@ -155,15 +133,111 @@ function Borrar(indice){
 	});
 }
 
+//Funcion para cargar el formulario de entrada de datos.
+//Cargará la nueva página con el formulario de añadir cliente si recibe "Nuevo"
+//Mostrará el formulario de edición si recibe un índice.
+function CargarFormulario(indice){
+
+	if(indice == "Nuevo"){
+		location.href='formulario.html';
+	}
+	else{
+		
+		document.getElementById("formularioModificaciones").style.display = 'inline';
+	
+		var idTupla = document.getElementsByTagName("tr")[indice+1].getElementsByTagName("td")[0].textContent;
+		
+		var Clientes = Parse.Object.extend("Clientes");
+		var query = new Parse.Query(Clientes);
+		query.get(idTupla, {
+		  success: function(cliente) {
+			    document.getElementById("idParse").value = cliente.id;
+				document.getElementById("nombre").value = cliente.get("nombre");
+				document.getElementById("apellido1").value = cliente.get("apellido1");
+				document.getElementById("apellido2").value = cliente.get("apellido2");
+				document.getElementById("direccion").value = cliente.get("direccion");
+				document.getElementById("cpostal").value = cliente.get("cpostal");
+				document.getElementById("provincia").value = cliente.get("provincia");
+				document.getElementById("fechaAlta").value = cliente.get("fechaAlta"); 
+				document.getElementById("nombre").focus();
+		  },
+		  error: function(object, error) {
+		    alert("Error recuperando el objeto");
+		  }
+		});
+		
+	}
+}
+
+
+
 //Funcion encargada de modificar la tupla seleccionada. 
 function Modificar(indice){
-	//alert("modificar");
 	
-	accion = "E";
-	alert("Que modificas el elemento " + indice + " RAPAZ!");
-	//indice = parseInt($(this).attr("alt").replace("Modificar", ""));
-	//var texto = this.alt;
-	
-	//location.href='formulario.html';
-	//$("#cpostal").focus();
+	var Clientes = Parse.Object.extend("Clientes");
+	var query = new Parse.Query(Clientes);
+	query.get(document.getElementById("idParse").value, {
+	  success: function(cliente) {
+	  	
+	  	cliente.set("nombre", document.getElementById("nombre").value);
+		cliente.set("apellido1", document.getElementById("apellido1").value);
+		cliente.set("apellido2", document.getElementById("apellido2").value);
+		cliente.set("direccion", document.getElementById("direccion").value);
+		cliente.set("cpostal", parseInt(document.getElementById("cpostal").value));
+		cliente.set("provincia", document.getElementById("provincia").value);
+		
+		if($("#fechaAlta").val()!=""){
+			cliente.set("fechaAlta", new Date(document.getElementById("fechaAlta").value));
+		}
+		cliente.save();
+		document.getElementById("formularioModificaciones").style.display = 'none';
+		Listar();
+	  },
+	  error: function(object, error) {
+	    alert("Error recuperando el objeto");
+	  }
+	});
+}
+
+
+
+//Funcion para obtener las provincias de Parse y listarlas en el combo box.
+function ListarProvincias(){
+	var Provincias = Parse.Object.extend("Provincias");
+	var query = new Parse.Query(Provincias);
+	query.find({
+	  success: function(resultados) {
+		var provincia = [];
+		//var j=0;
+	    //alert("Se han encontrado " + resultados.length + " resultados.");
+		for(var i in resultados){
+			//var listado = resultados[i];
+			provincia[i] = resultados[i].get("nombre");
+			//j++;
+		}
+		
+		var combo = document.getElementById("provincia");
+		var option;
+		//alert(provincia);
+		
+		if(provincia.length!=0 && provincia!=null)
+		{
+			for(i=0; i<provincia.length; i++){
+				//alert(provincia[i]);
+				option = document.createElement("option");
+				option.text = provincia[i];
+				option.value = provincia[i];
+				
+				combo.add(option , null);
+			}
+		}
+		/*for (var j in provincia){
+			alert(provincia[j]);
+		};*/
+	  },
+	  error: function(error) {
+	    alert("Error listando provincias: " + error.code + " " + error.message);
+	  }
+	});
+
 }

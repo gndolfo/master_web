@@ -16,6 +16,10 @@ ul label{
 	border:solid 1px;
 }
 
+#formularioModificaciones{
+	display: none;
+}
+
 #listaClientes{
 	width:100%;
 	border:solid 1px;

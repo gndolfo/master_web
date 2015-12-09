@@ -8,52 +8,63 @@
 	<title>Practica Final</title>
 </head>
 <body>	
-	<!--<form id="formularioClientes"> 
-		<div> 
-			<h2>Formulario Cliente</h2> 
-			<span class="texto_requerido">* Datos requeridos</span> 
-			<ul> 
-				<li> 
-					<label for="nombre">Nombre:</label> 
-					<input type="text" id="nombre" placeholder="Su nombre" maxlength="60" required /> 
-					<span class="asterisco">*</span> 
-				</li> 
-				<li> 
-					<label for="apellido1">Apellido 1:</label> 
-					<input type="text" id="apellido1"placeholder="Su primer apellido" maxlength="60" required /> 
-					<span class="asterisco">*</span>
-				</li> 
-				<li> 
-					<label for="apellido2">Apellido 2:</label> 
-					<input type="text" id="apellido2" placeholder="Su segundo apellido" maxlength="60" /> 
-				</li>
-				<li> 
-					<label for="direccion">Direccion:</label> 
-					<input type="text" id="direccion" placeholder="Su direccion" maxlength="120" required /> 
-					<span class="asterisco">*</span>
-				</li>
-				<li> 
-					<label for="cpostal">Código Postal:</label> 
-					<input type="number" id="cpostal" placeholder="Su código postal" minlengh="5" maxlength="5" required /> 
-					<span class="asterisco">*</span>
-				</li>  
-				<li> 
-					<label for="fecha_alta">Fecha de Alta:</label> 
-					<input id="fecha_alta" type="date" placeholder="Su fecha de nacimiento" />
-				</li>  
-				<li> 
-					<label for="provincia">Provincia:</label> 
-					<input id="provincia" placeholder="Su provincia" list="provincias" required />
-					<span class="asterisco">*</span>
-				</li>  					
-			</ul>
-			<button class="irFormulario" id="irFormulario" type="submit">Añadir Cliente</button> 
-		</div> 
-	</form> 
-	<input class="irFormulario" type="button" onclick="location.href='formulario.html';" value="Añadir Cliente" />-->
-	<button class="boton" onclick="location.href='formulario.html';"> Añadir Cliente </button> 
+	<button class="boton" onclick="CargarFormulario('Nuevo');"> Añadir Cliente </button>
 	<table id="listaClientes">
 
 	</table>
+	
+	<form id="formularioModificaciones"> 
+			<div> 
+				<h3>Modificar Cliente</h3> 
+				<span class="texto_requerido">* Datos requeridos</span> 
+				<ul> 
+					<li> 
+						<label for="idParse">ID:</label> 
+						<input type="text" id="idParse" disabled="true" /> 
+						<span class="asterisco">*</span> 
+					</li> 
+					<li> 
+						<label for="nombre">Nombre:</label> 
+						<input type="text" id="nombre" placeholder="Su nombre" maxlength="60" required /> 
+						<span class="asterisco">*</span> 
+					</li> 
+					<li> 
+						<label for="apellido1">Apellido 1:</label> 
+						<input type="text" id="apellido1"placeholder="Su primer apellido" maxlength="60" required /> 
+						<span class="asterisco">*</span>
+					</li> 
+					<li> 
+						<label for="apellido2">Apellido 2:</label> 
+						<input type="text" id="apellido2" placeholder="Su segundo apellido" maxlength="60" /> 
+					</li>
+					<li> 
+						<label for="direccion">Direccion:</label> 
+						<input type="text" id="direccion" placeholder="Su direccion" maxlength="120" required /> 
+						<span class="asterisco">*</span>
+					</li>
+					<li> 
+						<label for="cpostal">Código Postal:</label> 
+						<input type="number" id="cpostal" placeholder="Su código postal" minlengh="5" maxlength="5" required /> 
+						<span class="asterisco">*</span>
+					</li>  
+					<li> 
+						<label for="fechaAlta">Fecha de Alta:</label> 
+						<input id="fechaAlta" type="date" placeholder="Su fecha de alta" /> 
+					</li>  
+					<li> 
+						<label for="provincia">Provincia:</label> 
+						<select name="combo" id="provincia"></select>
+						<!--<input id="provincia" placeholder="Su provincia" list="provincias" required />-->
+						<span class="asterisco">*</span>
+					</li>  					
+				</ul>
+				<input class="boton" id="guardar" type="button" value="Guardar" onclick="Modificar();" />
+				<button class="boton" onclick="location.href='index.html';"> Cancelar </button> 
+			</div> 
+	</form> 
+	
+	<div id="googleMaps">
+		
+	</div>
 </body>
 </html>

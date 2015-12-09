@@ -21,15 +21,19 @@ function Nuevo(){
 	var cliente = new Clientes();
 
 
-	cliente.set("nombre", $("#nombre").val());
-	cliente.set("apellido1", $("#apellido1").val());
-	cliente.set("apellido2", $("#apellido2").val());
-	cliente.set("direccion", $("#direccion").val());
-	cliente.set("cpostal", parseInt($("#cpostal").val()));
-	cliente.set("provincia", $("#provincia").val());
+	cliente.set("nombre", document.getElementById("nombre").value);
+	cliente.set("apellido1", document.getElementById("apellido1").value);
+	cliente.set("apellido2", document.getElementById("apellido2").value);
+	cliente.set("direccion", document.getElementById("direccion").value);
+	cliente.set("cpostal", parseInt(document.getElementById("cpostal").value));
+	if (document.getElementById("cpostal").value.length!=5){
+		alert("El codigo postal debe tener 5 dígitos");
+		return false;
+	}
+	cliente.set("provincia", document.getElementById("provincia").value);
 	
-	if($("#fechaAlta").val()!=""){
-		cliente.set("fechaAlta", new Date($("#fechaAlta").val()));
+	if(document.getElementById("fechaAlta").value!=""){
+		cliente.set("fechaAlta", new Date(document.getElementById("fechaAlta").value));
 	}
 	
 	cliente.save(null, {
@@ -158,7 +162,11 @@ function CargarFormulario(indice){
 				document.getElementById("direccion").value = cliente.get("direccion");
 				document.getElementById("cpostal").value = cliente.get("cpostal");
 				document.getElementById("provincia").value = cliente.get("provincia");
-				document.getElementById("fechaAlta").value = cliente.get("fechaAlta"); 
+				if(cliente.get("fechaAlta")!=null && cliente.get("fechaAlta")!=0){
+					var date = cliente.get("fechaAlta");
+					var fechaFormateada = date.getFullYear() +"-"+ ("0" + (date.getMonth() + 1)).slice(-2) +"-"+ ("0" + date.getDate()).slice(-2);
+					document.getElementById("fechaAlta").value = fechaFormateada; 
+				}
 				document.getElementById("nombre").focus();
 		  },
 		  error: function(object, error) {
@@ -184,6 +192,10 @@ function Modificar(indice){
 		cliente.set("apellido2", document.getElementById("apellido2").value);
 		cliente.set("direccion", document.getElementById("direccion").value);
 		cliente.set("cpostal", parseInt(document.getElementById("cpostal").value));
+		if (document.getElementById("cpostal").value.length!=5){
+			alert("El codigo postal debe tener 5 dígitos");
+			return false;
+		}
 		cliente.set("provincia", document.getElementById("provincia").value);
 		
 		if($("#fechaAlta").val()!=""){

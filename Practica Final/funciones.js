@@ -84,7 +84,15 @@ function Listar(){
 			"<tbody>"+
 			"</tbody>"
 			);
+		var fila;
 		for(var i in resultados){
+			if(i%2==0)
+			{
+				fila = "par";
+			}
+			else{
+				fila = "impar";
+			}
 			var cliente = resultados[i];
 			var nombre = cliente.get("nombre");
 			var apellido1 = cliente.get("apellido1");
@@ -93,7 +101,7 @@ function Listar(){
 			var cpostal = cliente.get("cpostal");
 			var provincia = cliente.get("provincia");
 			var fechaAlta = cliente.get("fechaAlta");
-		  	$("#listaClientes tbody").append("<tr>"+
+		  	$("#listaClientes tbody").append("<tr id='"+fila+"'>"+
 										 "	<td>"+cliente.id+"</td>" + 
 										 "	<td>"+nombre+"</td>" + 
 										 "	<td>"+apellido1+"</td>" + 

@@ -12,6 +12,10 @@ ul label{
 	float:left;
 }
 
+#titulo{
+ 
+}
+
 #formularioClientes{
 	border:solid 1px;
 }
@@ -32,8 +36,16 @@ ul label{
 	height:30px;
 }
 
+#par {
+	background:#ced7f5;
+}
+
+#impar {
+	background:#909efc
+}
+
 #listaClientes thead{
-	background:beige;
+	background:#9c9c9c;
 }
 
 .texto_requerido {
@@ -49,11 +61,11 @@ ul label{
 	margin: 5px 0 0 0; 
 } 
 
-.irFormulario {
+/*.irFormulario {
 	padding: 10px;
 	margin-top: 20px;
 	margin-left: 20px;
-}
+}*/
 
 .boton {
 	padding: 10px;

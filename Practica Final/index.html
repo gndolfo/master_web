@@ -8,9 +8,10 @@
 	<title>Practica Final</title>
 </head>
 <body>	
-	<button class="boton" onclick="CargarFormulario('Nuevo');"> Añadir Cliente </button>
+	<input class="boton" id="nuevo" type="button" value="Añadir Cliente" onclick="CargarFormulario('Nuevo');" />
+	
 	<table id="listaClientes">
-
+		<h2><label id="titulo"> Listado de Clientes </label></h2> 
 	</table>
 	
 	<form id="formularioModificaciones"> 
@@ -59,7 +60,7 @@
 					</li>  					
 				</ul>
 				<input class="boton" id="guardar" type="button" value="Guardar" onclick="Modificar();" />
-				<button class="boton" onclick="location.href='index.html';"> Cancelar </button> 
+				<input class="boton" id="volver" type="button" value="Cancelar" onclick="location.href='index.html';" />
 			</div> 
 	</form> 
 	
